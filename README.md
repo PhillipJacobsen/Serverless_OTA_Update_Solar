@@ -3,6 +3,18 @@
 This ESP32 microcontroller based project demonstrates a unique Over-the-air(OTA) firmware upgrade scheme using the Solar.org Blockchain and IPFS.
 Firmware events are sent to the serial port as ASCII text for display on terminal program running on PC. 
 
+Here are more detailed steps of the process.
+1. generate firmware image for microcontroller
+2. generate JSON metadata for firmware image
+2. Upload image to IPFS using my cli tool. This will generate CID hash.
+https://i.imgur.com/DlBwKU8.png
+3. Send IPFS transaction with the CID hash and the JSON metadata
+https://i.imgur.com/wS20hQY.png
+4. Microcontroller will periodically check the blockchain for a new IPFS transaction that has newer version number.
+https://i.imgur.com/afC3lce.png
+5. Microcontroller will download firmware image from IPFS
+https://i.imgur.com/vL3XC4C.png
+
 ## How to Configure Project
 ```
 #define MQTT_CLIENT_NAME  "random or unique value"  
